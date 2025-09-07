@@ -1,4 +1,5 @@
-birthday-email-automation
+# Birthday-email-automation
+
 The Spring Boot-based application automates the process of sending birthday emails to employees. It integrates with a MySQL database to manage employee records and email templates, and it triggers scheduled tasks to send personalized birthday greetings.
 
 Key Features:
