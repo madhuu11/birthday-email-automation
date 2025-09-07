@@ -1,99 +1,40 @@
-# Birthday Email Automation System
+birthday-email-automation
+The Spring Boot-based application automates the process of sending birthday emails to employees. It integrates with a MySQL database to manage employee records and email templates, and it triggers scheduled tasks to send personalized birthday greetings.
 
-A Spring Boot application that automatically sends personalized birthday emails to users on their special day. This system uses scheduled tasks to check for birthdays daily and sends customized email greetings.
+Key Features:
 
-## Features
+• Automated Email Sending: Sends birthday emails to employees on their special day.
 
-- **Automated Birthday Emails**: Automatically sends emails to users on their birthdays
-- **User Management**: Add and view users with their personal details and birth dates
-- **Email Template System**: Customizable email templates with dynamic content placeholders
-- **Scheduled Execution**: Configurable scheduling using cron expressions
-- **Web Interface**: Simple UI for managing users and viewing birthday information
-- **Manual Trigger**: Option to manually trigger birthday emails for testing
+• Email Template Management: Create, update, and manage email templates for different occasions.
 
-## Technology Stack
+• Employee Data Handling: Maintains employee records, including personal details and last email sent.
 
-- **Backend**: Java 17, Spring Boot 3.3.4
-- **Database**: MySQL
-- **ORM**: Spring JPA
-- **Email**: Spring Mail
-- **Frontend**: Thymeleaf, Bootstrap 5
-- **Build Tool**: Maven
+• Scheduled Tasks: Uses Spring’s scheduling capabilities to run daily checks and trigger emails.
 
-## Project Structure
+• Customizable: Easily configurable to adapt to different use cases and business requirements.
 
-```
-src/
-├── main/
-│   ├── java/
-│   │   └── com/madhu/BirthdayEmail/
-│   │       ├── controller/      # REST and web controllers
-│   │       ├── entity/          # JPA entities
-│   │       ├── repository/      # Database repositories
-│   │       ├── scheduler/       # Cron job scheduler
-│   │       └── service/         # Business logic services
-│   └── resources/
-│       ├── application.properties # Application configuration
-│       └── templates/           # Thymeleaf HTML templates
-└── pom.xml
-```
+Technologies Used:
 
-## Setup Instructions
+• Spring Boot: Core framework for developing the application.
 
-### Clone the repository
+• Hibernate/JPA: For ORM and database interactions.
 
-- git clone https://github.com/yourusername/birthday-email-automation.git
-- cd birthday-email-automation
+• MySQL: Database for storing employee data and email templates.
 
-### Configure database
+• JavaMailSender: For sending emails.
 
-- Edit application.properties and set your MySQL connection details:
+Installation:
 
-spring.datasource.url=jdbc:mysql://localhost:3306/birthdayemail
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
+1 Clone the repository.
 
-### Configure email settings
+2 Set up the MySQL database and update the application.properties with your database credentials.
 
-- Add your email server details to application.properties:
+3 Run the application with mvn spring-boot:run.
 
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=your_email@gmail.com
-spring.mail.password=your_password
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
+4 Customize the email templates and employee data as needed.
 
-### Build and run 
-./mvnw spring-boot:run
+Usage:
 
-## Usage
+• The application will automatically check for employees’ birthdays each day and send them a birthday email.
 
-- **Access the web interface**
-Open your browser and navigate to http://localhost:8080/ui
-
-- **Add users**
-Navigate to "Add New User" and fill in the user's name, email, and date of birth.
-
-- **View all users**
-See all registered users with their information.
-
-- **Check today's birthdays**
-View users who have birthdays today and send them greetings.
-
- - **Scheduler configuration**
-The application is configured to check for birthdays every minute by default. You can adjust the scheduling by modifying the cron expression in JobSchedular.java.
-
-## REST API Endpoints
-
-- GET /birthday-email/send
-- GET /birthday-email/allUserDetails
-- POST /birthday-email/addUser
-- GET /birthday-email/user/birthdayToday
-- GET /email-template/all
-- POST /email-template/addEmailTemplate
-
-## Contact
-
-For questions or suggestions, please open an issue on the repository.
+• All email sending activities are logged for easy monitoring and troubleshooting.
